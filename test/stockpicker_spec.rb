@@ -8,7 +8,13 @@ describe StockPicker do
         @s = StockPicker.new
     end
 
-    it 'does anything' do
-        expect(@s).to eq @s
+    it 'picks the best stocks' do
+        expect(@s.stock_picker([1,2,3,4,5])).to eq [1,5]
+        expect(@s.stock_picker([1,2,3,4,5])).to eq [1,5]
+    end
+
+
+    it 'gets the lowest losses' do
+        expect(@s.stock_picker([1,2,3,4,5].reverse)).to eq [1,2]
     end
 end
